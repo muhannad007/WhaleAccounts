@@ -1,5 +1,7 @@
 const axios = require("axios");
-require("dotenv").config();
+require("dotenv").config({
+  path: "../.env",
+});
 
 const getTransactions = async (req, res) => {
   const BITQUERY_API_KEY = process.env.BITQUERY_API_KEY;
