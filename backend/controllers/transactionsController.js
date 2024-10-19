@@ -1,8 +1,9 @@
 const axios = require("axios");
+require("dotenv").config();
 
 const getTransactions = async (req, res) => {
-  // const BITQUERY_API_KEY = process.env.BITQUERY_API_KEY;
-  // const BITQUERY_API_TOKEN = process.env.BITQUERY_API_TOKEN;
+  const BITQUERY_API_KEY = process.env.BITQUERY_API_KEY;
+  const BITQUERY_API_TOKEN = process.env.BITQUERY_API_TOKEN;
 
   let data = JSON.stringify({
     query:
@@ -16,9 +17,8 @@ const getTransactions = async (req, res) => {
     url: "https://streaming.bitquery.io/graphql",
     headers: {
       "Content-Type": "application/json",
-      "X-API-KEY": "BQYBLOOU9mgcg5d8acFYTMrvMdaHiObg",
-      Authorization:
-        "Bearer ory_at_qgsgYPAMDyjncGwjlxpnJboWfzHmL0_6Y37KjZu7Koc.UcXB5ZFWD4kdm1UFpS1PoH-OzUFTi04PP8C552iwnHM",
+      "X-API-KEY": BITQUERY_API_KEY,
+      Authorization: BITQUERY_API_TOKEN,
     },
     data: data,
   };
